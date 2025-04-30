@@ -16,8 +16,10 @@
 
 import requests
 import os
+from dotenv import load_dotenv
+load_dotenv()
 API_KEY = os.getenv('Huggingface_Image_Generation')
-API_URL = "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-2"
+API_URL = "https://huggingface.co/stabilityai/stable-diffusion-2"
 headers = {"Authorization": f"Bearer {API_KEY}"}
 
 data = {

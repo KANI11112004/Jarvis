@@ -1,3 +1,4 @@
 .env
 todo.txt
 env/
+Backend/__pycache__/
