@@ -1,10 +1,9 @@
 import cohere
-import chatbot
-from chatbot import get_response
+# import chatbot
+from .chatbot import get_response
 import os
 from dotenv import load_dotenv
-import realtime
-from realtime import YepSearch, modifyAnswer, getGroqResponse, main
+from .realtime import YepSearch, modifyAnswer, getGroqResponse, main
 load_dotenv()
 co = cohere.Client(os.getenv('CohereAPI'))  # Replace with your actual API key
 

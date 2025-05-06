@@ -30,5 +30,5 @@ def get_response(query):
     temperature=0.9
     )
     return response.generations[0].text.strip()
-query = "What is your name?"
-print(get_response(query))
+# query = "What is your name?"
+# print(get_response(query))

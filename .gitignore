@@ -2,3 +2,5 @@
 todo.txt
 env/
 Backend/__pycache__/
+Testing/
+.gitignore
