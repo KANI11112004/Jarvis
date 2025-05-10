@@ -39,16 +39,16 @@ def classify_query(query:str):
 #     ans = realtime.GoogleSearch(answer)
 #     mod_ans = realtime.modifyAnswer(ans)
 #     print(f"Jarvis: {realtime.getGroqResponse(mod_ans)}")
-if __name__ == "__main__":
-    while True:
-        query = input("User: ")
-        if query=='quit':
-            break
-        answer = classify_query(query)
-        # print(classify_query(query))
-        if 'general' in answer:
-            print(f"Jarvis: {chatbot.get_response(query)}")
-        elif 'realtime' in answer:
-            print(f"Jarvis: {realtime.main(query)}")
-        elif 'automation' in answer:
-            print(f"Jarvis: This service will be available soon. :)")
+# if __name__ == "__main__":
+#     while True:
+#         query = input("User: ")
+#         if query=='quit':
+#             break
+#         answer = classify_query(query)
+#         # print(classify_query(query))
+#         if 'general' in answer:
+#             print(f"Jarvis: {get_response(query)}")
+#         elif 'realtime' in answer:
+#             print(f"Jarvis: {main(query)}")
+#         elif 'automation' in answer:
+#             print(f"Jarvis: This service will be available soon. :)")
