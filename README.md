@@ -1,7 +1,7 @@
 # 🤖 Jarvis - Your Personal AI Assistant
 
 ![Jarvis Banner](https://github.com/gourabanandad/Jarvis/blob/571af57414182e05e160b1cf49d7ddb38061ffcb/banner.png)
-*(Consider adding an actual banner image here)*
+
 
 A sophisticated personal assistant inspired by the iconic AI from Iron Man, combining cutting-edge APIs with intelligent query routing.
 
