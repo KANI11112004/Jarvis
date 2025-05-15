@@ -30,5 +30,3 @@ def predict_intent(text):
     predicted_label = model.config.id2label[preds.item()]
     
     return predicted_label
-
-# Example usage
