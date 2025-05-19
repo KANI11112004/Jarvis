@@ -114,7 +114,9 @@ Jarvis/
 │   └── __pycache__/             # Compiled bytecode (auto-generated)
 
 ├── Frontend/
-│   └── ImageGeneration.data     # Data placeholder (GUI planned)
+│   ├── ImageGeneration.data     # Data placeholder (GUI planned)
+│   ├── logo.png                 # For Jarvis's logo
+│   └── voice.gif                # For Jarvis's voice system frontend
 ```
 
 ## 🤝 Contributing
@@ -127,16 +129,19 @@ We welcome contributions! Please follow these steps:
 4. Push to the branch (`git push origin amazing-feature`)
 5. Open a Pull Request
 
+## 👥 Contributors List
+[CONTRIBUTORS.md](CONTRIBUTORS.md)
+
 ## 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 📬 Contact
 
-**Gourab Anand**
+**Gourabananda Datta**
 
 * GitHub: [@gourabanandad](https://github.com/gourabanandad)
-* LinkedIn: [@yourhandle](https://www.linkedin.com/in/gourabananda-datta-a3521a285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) 
+* LinkedIn: [@gourabananda-datta-a3521a285](https://www.linkedin.com/in/gourabananda-datta-a3521a285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) 
 * Email: [gourabanandad@gmail.com](mailto:gourabanandad@gmail.com) 
 
 ---
