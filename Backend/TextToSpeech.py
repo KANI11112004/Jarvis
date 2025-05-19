@@ -1,13 +1,19 @@
 import pyttsx3
+import threading
 
-def TextToSpeech(text: str, rate: int = 150, volume: float = 1.0, voice_index: int = 0):
+def speak_text(text):
     engine = pyttsx3.init()
-    engine.setProperty('rate', rate)
-    engine.setProperty('volume', volume)
-    
     voices = engine.getProperty('voices')
-    if 0 <= voice_index < len(voices):
-        engine.setProperty('voice', voices[voice_index].id)
-    
+    for voice in voices:
+        if "Ravi" in voice.name or "India" in voice.name:
+            engine.setProperty('voice', voice.id)
+            break
+
+    engine.setProperty('rate', 170)
+    engine.setProperty('volume', 1.0)
     engine.say(text)
     engine.runAndWait()
+
+def TextToSpeech(text):
+    t = threading.Thread(target=speak_text, args=(text,))
+    t.start()
