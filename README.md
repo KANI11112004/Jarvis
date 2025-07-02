@@ -59,9 +59,9 @@ Try these example queries:
 query = "What's the weather today?"
 intent = classify_query(query)  # Returns 'realtime'
 ```
+#### i) Classification models:
+[Go here to download the model](Backend\Models\README.md)
 
-[Download the pkl model from here](https://drive.google.com/drive/folders/1BLogAG0Lm-lXnI0MEzWtKUY6VkNJ7JVi?usp=sharing)
- And place it 'Backend\bert_intent_classifier'
 
 
 ### 2. Real-Time Query Processing
