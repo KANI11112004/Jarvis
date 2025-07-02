@@ -494,6 +494,8 @@ class JarvisInterface:
                 response = get_response(query)
             elif 'realtime' in classification:
                 response = realtime_main(query)
+            elif  'automation' in classification:
+                response = "Sorry I can't do this right now."
             else:
                 response = "I'm not sure how to handle that query. Please try again."
             
