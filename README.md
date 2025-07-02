@@ -20,7 +20,7 @@ A sophisticated personal assistant inspired by the iconic AI from Iron Man, comb
 
 ### Prerequisites
 
-* Python 3.8+
+* Python 3.12.4(Strogly recommend to have this Pyhon version)
 * API keys for [Groq](https://groq.com/) and [Cohere](https://cohere.com/)
 
 ### Installation
