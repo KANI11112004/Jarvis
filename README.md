@@ -60,7 +60,7 @@ query = "What's the weather today?"
 intent = classify_query(query)  # Returns 'realtime'
 ```
 #### i) Classification models:
-[Go here to download the model](Backend\Models\README.md)
+[Go here to download the model](Backend/Models/README.md)
 
 
 
