@@ -9,8 +9,11 @@ import time
 import requests
 import json
 import random
+
 load_dotenv()
 
+
+    
 def tell_jokes():
     response = requests.get("https://official-joke-api.appspot.com/jokes/random")
     if response.status_code == 200:
@@ -18,7 +21,6 @@ def tell_jokes():
         return f"{joke['setup']} ... {joke['punchline']}"
     else:
         return "Sorry, I couldn't fetch a joke right now."
-
 def getting_news():
     url = f"https://newsapi.org/v2/everything?q=india-pakistan&apiKey={os.getenv('newsapi')}" 
     response = requests.get(url)
@@ -58,21 +60,22 @@ def weather_update():
     else:
         return "Error fetching weather data."
 
-if __name__ == "__main__":
-    load_dotenv()
-    while True:
-        query = input("User: ")
-        if query == 'quit':
-            break
-        intent = predict_intent(query)
-        print(intent)
-        if intent == 'tell_joke':
-            print(f"Jarvis: {tell_jokes()}")
-        elif intent == 'get_news':
-            print(f"Jarvis: {getting_news()}")
-        elif intent == 'get_fact':
-            print(f"Jarvis: {get_random_fact()}")
-        elif intent == 'get_quote':
-            print(f"Jarvis: {get_quotes()}")
-        elif intent == 'get_weather':
-            print(f"Jarvis: {weather_update()}")
+# if __name__ == "__main__":
+#     load_dotenv()
+#     while True:
+#         query = input("User: ")
+#         if query == 'quit':
+#             break
+#         intent = predict_intent(query)
+#         print(intent)
+#         if intent == 'tell_joke':
+#             print(f"Jarvis: {tell_jokes()}")
+#         elif intent == 'get_news':
+#             print(f"Jarvis: {getting_news()}")
+#         elif intent == 'get_fact':
+#             print(f"Jarvis: {get_random_fact()}")
+#         elif intent == 'get_quote':
+#             print(f"Jarvis: {get_quotes()}")
+#         elif intent == 'get_weather':
+#             print(f"Jarvis: {weather_update()}")
+
