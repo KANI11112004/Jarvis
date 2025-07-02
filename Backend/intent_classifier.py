@@ -2,8 +2,8 @@ from transformers import BertTokenizer, BertForSequenceClassification
 import torch
 
 # Load the saved model
-model = BertForSequenceClassification.from_pretrained('Backend\\bert_intent_classifier')
-tokenizer = BertTokenizer.from_pretrained('Backend\\bert_intent_classifier')
+model = BertForSequenceClassification.from_pretrained('Backend\\Models\\bert_intent_classifier')
+tokenizer = BertTokenizer.from_pretrained('Backend\\Models\\bert_intent_classifier')
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 def predict_intent(text):
     encoding = tokenizer.encode_plus(

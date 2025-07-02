@@ -5,7 +5,7 @@ import torch
 model = BertForSequenceClassification.from_pretrained('Backend/Models/bert_base_intent_classifier')
 tokenizer = BertTokenizer.from_pretrained('Backend/Models/bert_base_intent_classifier')
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-def classify_query(text):
+def predict_intent(text):
     encoding = tokenizer.encode_plus(
         text,
         add_special_tokens=True,
