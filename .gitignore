@@ -8,4 +8,3 @@ Backend/tempCodeRunnerFile.py
 app.py
 Backend/Models/bert_intent_classifier/
 Backend/Models/bert_base_intent_classifier/
-Backend/base_intent_classifier.py
