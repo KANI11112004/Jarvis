@@ -4,11 +4,12 @@ import time
 from duckduckgo_search import DDGS
 from dotenv import load_dotenv
 import requests
-from .intent_classifier import predict_intent
+# from .intent_classifier import predict_intent
 from bs4 import BeautifulSoup
 import datetime as dt
 import yfinance as yf
 import spacy
+from .Classifier.realtime_intent_classifier import predict_realtime_intent
 load_dotenv()
 Username = os.getenv('User')
 Assistantname = os.getenv('Assistantname')
@@ -40,8 +41,15 @@ def getting_news(query):
     else:
         return "Sorry, I couldn't fetch the news right now."
     
-def weather_update():
-    city = "Puruliya"
+def getting_city_name(query):
+    nlp = spacy.load("en_core_web_trf")
+    doc = nlp(query)
+    for ent in doc.ents:
+        if ent.label_ in ["GPE", "LOC"]:
+            return ent.text
+    raise ValueError("City name not found in the query.")
+def weather_update(query):
+    city = getting_city_name(query)
     weather_url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={os.getenv('WEATHER_API')}&units=metric"
     response = requests.get(weather_url)
     data = response.json()
@@ -92,7 +100,7 @@ def get_global_stock_yahoo(query):
     latest_price = data["Close"].iloc[-1]
     return f"${latest_price}"
 
-def YepSearch(query, retries=3, delay=2):
+def Browse_Search(query, retries=3, delay=2):
     attempt = 0
     while attempt < retries:
         try:
@@ -154,19 +162,24 @@ def get_groq_response(query, prompt, raw_search_results):
     return chat_completion.choices[0].message.content
 
 def main(query):
-    intent = predict_intent(query)
-    if intent == 'get_news':
+    intent = predict_realtime_intent(query)
+    if intent == 'news':
         news = getting_news(query)
         prompt = f"Hello, You are a news assistant. Your job is to tell the news in a prefessional way. The news has a headline and a description. Please read the whole thing and always give to the point answer. There are 5 news articles. Please provide the news in a professional way."
         return get_groq_response(query, prompt, news)
-    elif intent == 'get_weather':
-        return weather_update()
-    elif 'stock' in query or 'share' in query:
+    elif intent == 'weather':
+        return weather_update(query)
+    elif intent == 'stock price':
         return f"The current stock price of {extract_company_name(query)} is {get_global_stock_yahoo(query)}"
-    else:
-        ans = YepSearch(query)
+    
+    elif intent == 'current affairs':
+        ans = Browse_Search(query)
         m_ans = modifyAnswer(ans)
         return getGroqResponse(query, m_ans)
+    elif intent == 'currency exchange':
+        return f"Sorry this feature is not available right now."
+    elif intent == 'live sports':
+        return f"Sorry this feature is not available right now."
 # while True:
 #     query = input("User: ")
 #     if query == 'quit':
