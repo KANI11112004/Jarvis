@@ -31,3 +31,4 @@ def classify_query(text):
     
     return predicted_label
 
+print(classify_query("Hi"))
