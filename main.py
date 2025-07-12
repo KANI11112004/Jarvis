@@ -13,7 +13,7 @@ from Backend.realtime import main as realtime_main
 from Backend.model import classify_query
 from Backend.SpeechToText import SpeechToText
 from Backend.TextToSpeech import TextToSpeech
-
+from Backend.query_correction import correction
 class JarvisInterface:
     def __init__(self, master):
         self.master = master
@@ -478,6 +478,7 @@ class JarvisInterface:
         
     def _process_query_background(self, query):
         """Background thread for processing queries"""
+        query = correction(query)  # Correct query before processing
         try:
             if query.lower() == 'quit':
                 self.message_queue.put(('add_message', "JARVIS", "Shutting down systems...", 'jarvis'))
